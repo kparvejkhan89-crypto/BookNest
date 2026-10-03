@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About BookNest — Academic Assignment & AI-Assisted Development</title>
+  <meta name="description" content="Learn about BookNest, its architectural design, frontend engineering, and how Generative AI assisted in creating this modern bookstore.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23C47735'><path d='M4 19.5A2.5 2.5 0 0 1 6.5 17H20'/><path d='M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z'/></svg>">
+</head>
+<body>
+
+  <!-- Sticky Site Navigation Header -->
+  <header class="site-header" id="header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" aria-label="BookNest Home">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            <path d="M12 6v6"></path>
+            <path d="M9 9h6"></path>
+          </svg>
+        </div>
+        <div class="logo-text-group">
+          <span class="logo-title">Book<span>Nest</span></span>
+          <span class="logo-tagline">Curated Bookshelf</span>
+        </div>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="books.html" class="nav-link">Books</a>
+        <a href="categories.html" class="nav-link">Categories</a>
+        <a href="about.html" class="nav-link active">About</a>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="theme-toggle-btn" aria-label="Toggle theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <a href="cart.html" class="cart-nav-btn" aria-label="View Shopping Cart">
+          <div class="cart-nav-icon-wrap">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2">
+              <circle cx="9" cy="21" r="1"></circle>
+              <circle cx="20" cy="21" r="1"></circle>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+            <span class="cart-badge-count" style="display: none;">0</span>
+          </div>
+          <span class="cart-nav-text">Cart</span>
+        </a>
+
+        <button type="button" class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+  <aside class="mobile-nav-drawer" id="mobile-nav-drawer">
+    <div class="mobile-drawer-header">
+      <div class="brand-logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+        </div>
+        <span class="logo-title">Book<span>Nest</span></span>
+      </div>
+      <button type="button" class="mobile-drawer-close" id="mobile-nav-close" aria-label="Close menu">&times;</button>
+    </div>
+
+    <nav class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-link"><span>Home</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
+      <a href="books.html" class="mobile-nav-link"><span>Books Catalogue</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
+      <a href="categories.html" class="mobile-nav-link"><span>Categories</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
+      <a href="cart.html" class="mobile-nav-link"><span>Shopping Cart</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
+      <a href="about.html" class="mobile-nav-link active"><span>About Project</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
+    </nav>
+  </aside>
+
+  <!-- About Page Content -->
+  <main>
+    <!-- About Hero Section -->
+    <section class="about-hero-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-subtitle">Academic Assignment Demonstration</span>
+          <h1 class="section-title">Design and Development of an Online Book Store Using Generative AI</h1>
+          <p class="section-desc" style="max-width: 780px;">
+            <strong>BookNest</strong> is a complete, polished, frontend-only bookstore application built exclusively with <strong>semantic HTML5, modern CSS3, and Vanilla JavaScript</strong>. It illustrates how generative AI pair-programming elevates web design aesthetics, responsive accessibility, and client-side architecture without relying on external frameworks or backend databases.
+          </p>
+
+          <div class="tech-pills-row" style="justify-content: center;">
+            <div class="tech-pill">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              <span>Pure HTML5</span>
+            </div>
+            <div class="tech-pill">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+              <span>CSS3 Flex & Grid</span>
+            </div>
+            <div class="tech-pill">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              <span>Vanilla JavaScript (ES6+)</span>
+            </div>
+            <div class="tech-pill">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+              <span>LocalStorage Persistence</span>
+            </div>
+            <div class="tech-pill">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+              <span>Zero Dependencies</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Key Features Breakdown Grid -->
+        <div class="about-features-grid">
+          <div class="about-feature-card">
+            <div class="feature-card-icon">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </div>
+            <h3>Live Catalog & Filtering</h3>
+            <p>Instantaneous search across book titles, authors, and genres combined with multi-criteria sorting (Price Low/High, Rating, Featured) and URL query syncing.</p>
+          </div>
+
+          <div class="about-feature-card">
+            <div class="feature-card-icon">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+            </div>
+            <h3>Persistent Shopping Cart</h3>
+            <p>State synchronized across browser tabs using <code>localStorage</code>. Features quantity increments, dynamic subtotals, free shipping progress, and promo codes.</p>
+          </div>
+
+          <div class="about-feature-card">
+            <div class="feature-card-icon">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+            </div>
+            <h3>Fully Responsive Design</h3>
+            <p>Fluid CSS grid and flexbox architectures meticulously tested across 320px mobile viewports up to 4K ultra-wide monitors with zero horizontal overflow.</p>
+          </div>
+
+          <div class="about-feature-card">
+            <div class="feature-card-icon">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </div>
+            <h3>Adaptive Light & Dark Theme</h3>
+            <p>CSS custom variable design system switching cleanly between a warm cream bookstore aesthetic and a nocturnal slate/forest ambiance with storage memory.</p>
+          </div>
+
+          <div class="about-feature-card">
+            <div class="feature-card-icon">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            </div>
+            <h3>Interactive Modals & Toasts</h3>
+            <p>Custom Quick-View modal for in-depth book synopses and publication specs, plus a lightweight non-blocking floating notification toast system.</p>
+          </div>
+
+          <div class="about-feature-card">
+            <div class="feature-card-icon">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <h3>Simulated Checkout & Receipts</h3>
+            <p>Safe client-side checkout simulation that validates customer information, calculates taxes, issues randomized order receipts, and resets state.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI-Assisted Engineering Showcase -->
+    <section class="ai-showcase-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-subtitle">Methodology & Tooling</span>
+          <h2 class="section-title">How Generative AI Shaped BookNest</h2>
+          <p class="section-desc">Documenting the role of modern Generative AI in the iterative engineering of this assignment.</p>
+        </div>
+
+        <div class="ai-showcase-grid">
+          <div class="ai-card">
+            <span class="ai-card-badge">Architecture & HTML</span>
+            <h3>Semantic HTML5 Generation</h3>
+            <p>Generative AI was used to draft semantic HTML structures adhering to WAI-ARIA standards. Components like modal dialogs, accessible forms, breadcrumbs, and landmark sections were structured with screen-reader readiness and SEO best practices in mind.</p>
+          </div>
+
+          <div class="ai-card">
+            <span class="ai-card-badge">UI & Aesthetics</span>
+            <h3>CSS3 Architecture & Palette Harmonization</h3>
+            <p>The AI assisted in generating a cohesive CSS design system utilizing CSS Custom Properties. The warm bookstore palette (#183B2B, #C47735, #FBFAF7, #F0E5D4) was mapped to both light and dark themes, while realistic 3D book spine gradients and card depth were engineered programmatically.</p>
+          </div>
+
+          <div class="ai-card">
+            <span class="ai-card-badge">Logic & Interactivity</span>
+            <h3>Vanilla JavaScript Algorithms</h3>
+            <p>AI was prompted to generate reactive, modular JavaScript engines for the shopping cart (subtotal, threshold-based delivery calculation, coupon discounts, tab-synchronization via <code>storage</code> events) and catalog filtering (regex-based search, multi-field sorting, and URL query handling).</p>
+          </div>
+
+          <div class="ai-card">
+            <span class="ai-card-badge">Quality Assurance</span>
+            <h3>Responsive Testing & Edge Case Debugging</h3>
+            <p>Generative AI helped audit edge cases such as empty cart states, invalid promo codes, zero search results, mobile drawer overflow bugs, and localStorage deserialization error trapping to ensure a rock-solid student submission.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive FAQ Accordion -->
+    <section class="faq-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-subtitle">Frequently Asked Questions</span>
+          <h2 class="section-title">Everything You Need to Know</h2>
+          <p class="section-desc">Common questions regarding the architecture, assignment constraints, and tech stack.</p>
+        </div>
+
+        <div class="faq-accordion">
+          <!-- FAQ 1 -->
+          <div class="faq-item is-active">
+            <button type="button" class="faq-question" aria-expanded="true">
+              <span>Is this a real bookstore?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="faq-answer">
+              No. BookNest is an educational frontend project created for a college assignment titled <em>"Design and Development of an Online Book Store Using Generative AI"</em>. All book listings, prices, promo codes, and checkout flows are simulated client-side. No physical goods are sold or shipped.
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              <span>Does the website use a database?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="faq-answer">
+              No server database (like MySQL, MongoDB, or Firebase) is used. The book catalog is stored as a structured JavaScript array in <code>js/books.js</code>, and shopping cart persistence is handled natively by the browser's <code>localStorage</code> API. This allows the site to function 100% offline and standalone.
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              <span>Which technologies are used?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="faq-answer">
+              BookNest strictly uses only <strong>HTML5, CSS3, and Vanilla JavaScript (ES6+)</strong>. There are no frameworks (no React, Vue, or Angular), no runtime dependencies, no npm packages, and no backend servers. Simply opening <code>index.html</code> in any modern browser executes the entire site immediately.
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              <span>How does the shopping cart persist without a database?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="faq-answer">
+              Whenever you add, modify, or remove an item, the JavaScript <code>Cart</code> object serializes the state to a JSON string stored inside the browser's <code>localStorage</code> key <code>booknest_cart</code>. When you navigate between pages or reload, the cart is deserialized back into memory, preserving your items.
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              <span>How was Generative AI utilized in building BookNest?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="faq-answer">
+              Generative AI served as an intelligent pair-programmer across all phases: brainstorming the bookstore aesthetic and palette, generating the clean HTML5 templates, structuring CSS custom properties and media queries, designing custom SVG cover art, writing JavaScript business logic for the cart and search filters, and validating cross-device responsiveness.
+            </div>
+          </div>
+
+          <!-- FAQ 6 -->
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              <span>Can this frontend be connected to a real backend in the future?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="faq-answer">
+              Yes, absolutely! The JavaScript code was built using modular design patterns (such as <code>BookCatalog</code> and <code>Cart</code> objects). Replacing the local dataset with <code>fetch()</code> API calls to a REST or GraphQL endpoint, and sending checkout data to a payment gateway like Stripe, would effortlessly transition this frontend into a full-stack production application.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand-col">
+          <a href="index.html" class="brand-logo">
+            <div class="logo-icon">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+              </svg>
+            </div>
+            <span class="footer-logo-title">Book<span>Nest</span></span>
+          </a>
+          <p class="footer-bio">
+            Academic demonstration project highlighting modern frontend development and generative AI workflow integration.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="footer-heading">Navigation</h3>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="index.html">Home</a></li>
+            <li class="footer-link-item"><a href="books.html">All Books</a></li>
+            <li class="footer-link-item"><a href="categories.html">Categories</a></li>
+            <li class="footer-link-item"><a href="cart.html">Shopping Cart</a></li>
+            <li class="footer-link-item"><a href="about.html">About Project</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-heading">Categories</h3>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="books.html?category=Fiction">Fiction</a></li>
+            <li class="footer-link-item"><a href="books.html?category=Technology">Technology</a></li>
+            <li class="footer-link-item"><a href="books.html?category=Self-Help">Self-Help</a></li>
+            <li class="footer-link-item"><a href="books.html?category=Business">Business</a></li>
+            <li class="footer-link-item"><a href="books.html?category=Science">Science</a></li>
+            <li class="footer-link-item"><a href="books.html?category=Classics">Classics</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-heading">Submission Info</h3>
+          <div class="footer-academic-badge">
+            <div class="footer-academic-title">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path></svg>
+              Coursework Portfolio
+            </div>
+            <p class="footer-academic-text">
+              Assignment: "Design and Development of an Online Book Store Using Generative AI". Pure Vanilla Frontend implementation.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <p>&copy; 2026 BookNest. All rights reserved.</p>
+        <p>Built with Semantic HTML5, CSS3 &amp; ES6 JavaScript</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/books.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

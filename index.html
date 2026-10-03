@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookNest — Stories that stay with you | Modern Online Bookstore</title>
+  <meta name="description" content="BookNest is a premium curated online bookstore featuring fiction, technology, self-development, business, science, and timeless classics.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23C47735'><path d='M4 19.5A2.5 2.5 0 0 1 6.5 17H20'/><path d='M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z'/></svg>">
+</head>
+<body>
+
+  <!-- Sticky Site Navigation Header -->
+  <header class="site-header" id="header">
+    <div class="container nav-container">
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo" aria-label="BookNest Home">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            <path d="M12 6v6"></path>
+            <path d="M9 9h6"></path>
+          </svg>
+        </div>
+        <div class="logo-text-group">
+          <span class="logo-title">Book<span>Nest</span></span>
+          <span class="logo-tagline">Curated Bookshelf</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="books.html" class="nav-link">Books</a>
+        <a href="categories.html" class="nav-link">Categories</a>
+        <a href="about.html" class="nav-link">About</a>
+      </nav>
+
+      <!-- Action Controls: Theme Switch, Cart & Mobile Menu -->
+      <div class="header-actions">
+        <!-- Theme Toggle -->
+        <button type="button" class="theme-toggle-btn" aria-label="Toggle theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- Cart Nav Button -->
+        <a href="cart.html" class="cart-nav-btn" aria-label="View Shopping Cart">
+          <div class="cart-nav-icon-wrap">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="9" cy="21" r="1"></circle>
+              <circle cx="20" cy="21" r="1"></circle>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+            <span class="cart-badge-count" style="display: none;">0</span>
+          </div>
+          <span class="cart-nav-text">Cart</span>
+        </a>
+
+        <!-- Mobile Navigation Hamburger -->
+        <button type="button" class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay & Menu -->
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+  <aside class="mobile-nav-drawer" id="mobile-nav-drawer" aria-label="Mobile Navigation">
+    <div class="mobile-drawer-header">
+      <div class="brand-logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+        </div>
+        <span class="logo-title">Book<span>Nest</span></span>
+      </div>
+      <button type="button" class="mobile-drawer-close" id="mobile-nav-close" aria-label="Close menu">&times;</button>
+    </div>
+
+    <nav class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-link">
+        <span>Home</span>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </a>
+      <a href="books.html" class="mobile-nav-link">
+        <span>Books Catalogue</span>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </a>
+      <a href="categories.html" class="mobile-nav-link">
+        <span>Categories</span>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </a>
+      <a href="cart.html" class="mobile-nav-link">
+        <span>Shopping Cart</span>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </a>
+      <a href="about.html" class="mobile-nav-link">
+        <span>About Project</span>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </a>
+    </nav>
+
+    <div class="mobile-drawer-footer">
+      <a href="books.html" class="btn-primary" style="width: 100%;">Explore All Books</a>
+      <p style="font-size: 0.8rem; text-align: center; color: var(--color-text-muted);">Frontend-Only Assignment</p>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-grid">
+          <!-- Text Content -->
+          <div class="hero-text-col">
+            <span class="hero-pill-badge">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+              Curated Spring 2026 Collection
+            </span>
+
+            <h1 class="hero-title">
+              Stories that <span class="hero-title-highlight">stay with you.</span>
+            </h1>
+
+            <p class="hero-subtitle">
+              Discover transformative fiction, cutting-edge technology, life-changing self-development, insightful science, and timeless classics. Handpicked literature crafted for curious minds and avid readers.
+            </p>
+
+            <div class="hero-actions-row">
+              <a href="books.html" class="btn-primary">
+                <span>Explore Books</span>
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+              <a href="categories.html" class="btn-secondary">
+                <span>Browse Categories</span>
+              </a>
+            </div>
+
+            <!-- Trust Stats -->
+            <div class="hero-trust-row">
+              <div class="trust-item">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                <span>Free Delivery Over $35</span>
+              </div>
+              <div class="trust-item">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <span>4.8 / 5 Average Rating</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Visual Showcase -->
+          <div class="hero-visual-col">
+            <div class="hero-visual-card">
+              <div class="hero-book-stage">
+                <img src="assets/images/covers/atomic-habits.svg" alt="Featured Book - Atomic Habits" class="hero-featured-book-cover">
+              </div>
+
+              <!-- Floating Tag -->
+              <div class="hero-floating-tag">
+                <div class="hero-tag-icon">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                </div>
+                <div class="hero-tag-text">
+                  <span class="hero-tag-label">#1 Bestseller</span>
+                  <span class="hero-tag-val">Atomic Habits</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Browse By Category Section -->
+    <section class="home-categories-section">
+      <div class="container">
+        <div class="section-header header-flex">
+          <div>
+            <span class="section-subtitle">Curated Genres</span>
+            <h2 class="section-title">Explore by Category</h2>
+          </div>
+          <a href="categories.html" class="view-all-link">
+            <span>View All Categories</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+        </div>
+
+        <div class="home-categories-grid" id="home-categories-grid">
+          <!-- Populated dynamically via main.js from CATEGORIES_DATA -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Books Section -->
+    <section class="featured-books-section">
+      <div class="container">
+        <div class="section-header header-flex">
+          <div>
+            <span class="section-subtitle">Staff Recommendations</span>
+            <h2 class="section-title">Featured Books</h2>
+            <p class="section-desc">Carefully selected reads that inspire, instruct, and captivate readers worldwide.</p>
+          </div>
+          <a href="books.html" class="view-all-link">
+            <span>Browse Full Catalogue (16 Titles)</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+        </div>
+
+        <div class="books-grid" id="featured-books-grid">
+          <!-- Populated dynamically via main.js from BOOKS dataset -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Perks / Why BookNest Section -->
+    <section class="perks-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-subtitle">The BookNest Experience</span>
+          <h2 class="section-title">Why Readers Choose Us</h2>
+          <p class="section-desc">We bridge timeless bookshop charm with crisp modern web design.</p>
+        </div>
+
+        <div class="perks-grid">
+          <div class="perk-card">
+            <div class="perk-icon-wrap">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+            </div>
+            <h3 class="perk-title">Free Standard Delivery</h3>
+            <p class="perk-desc">Enjoy complimentary shipping across the country on all orders reaching $35 or more.</p>
+          </div>
+
+          <div class="perk-card">
+            <div class="perk-icon-wrap">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            </div>
+            <h3 class="perk-title">Curated Selection</h3>
+            <p class="perk-desc">Every volume in our collection is handpicked for literary depth, insight, and enduring value.</p>
+          </div>
+
+          <div class="perk-card">
+            <div class="perk-icon-wrap">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </div>
+            <h3 class="perk-title">Rapid Dispatch</h3>
+            <p class="perk-desc">Orders are carefully packed in protective packaging and dispatched within 24 hours.</p>
+          </div>
+
+          <div class="perk-card">
+            <div class="perk-icon-wrap">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            </div>
+            <h3 class="perk-title">Reader-First Design</h3>
+            <p class="perk-desc">Clean typography, responsive layout, intuitive cart persistence, and seamless dark mode.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Subscription Section -->
+    <section class="newsletter-section">
+      <div class="container">
+        <div class="newsletter-card">
+          <div class="newsletter-text-col">
+            <h2 class="newsletter-title">Join the BookNest Literary Circle</h2>
+            <p class="newsletter-desc">Subscribe to receive monthly book recommendations, author spotlights, seasonal promotions, and early access to curated editions.</p>
+          </div>
+
+          <div class="newsletter-form-col">
+            <form class="newsletter-form" id="newsletter-form">
+              <input 
+                type="email" 
+                class="newsletter-input" 
+                placeholder="Enter your email address..." 
+                required 
+                aria-label="Email address for newsletter"
+              >
+              <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+            <p class="newsletter-privacy">No spam. Only literary inspiration. Unsubscribe anytime.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Quick View Book Modal -->
+  <div class="modal-overlay" id="book-quick-modal" role="dialog" aria-modal="true" aria-label="Book Quick View">
+    <div class="modal-container">
+      <button type="button" class="modal-close-btn" onclick="closeBookModal()" aria-label="Close modal">&times;</button>
+      <div class="modal-content-body">
+        <!-- Injected via openBookModal() in books.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <!-- Brand Info -->
+        <div class="footer-brand-col">
+          <a href="index.html" class="brand-logo">
+            <div class="logo-icon">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+              </svg>
+            </div>
+            <span class="footer-logo-title">Book<span>Nest</span></span>
+          </a>
+          <p class="footer-bio">
+            A boutique digital sanctuary celebrating books that challenge, delight, and enrich the human spirit. Built with modern web standards and generative AI craftsmanship.
+          </p>
+          <div class="footer-social-links">
+            <a href="#" class="social-link" aria-label="Twitter/X">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h3 class="footer-heading">Navigation</h3>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="index.html">Home</a></li>
+            <li class="footer-link-item"><a href="books.html">All Books</a></li>
+            <li class="footer-link-item"><a href="categories.html">Categories</a></li>
+            <li class="footer-link-item"><a href="cart.html">Shopping Cart</a></li>
+            <li class="footer-link-item"><a href="about.html">About Project</a></li>
+          </ul>
+        </div>
+
+        <!-- Categories List -->
+        <div>
+          <h3 class="footer-heading">Categories</h3>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="books.html?category=Fiction">Fiction</a></li>
+            <li class="footer-link-item"><a href="books.html?category=Technology">Technology</a></li>
+            <li class="footer-link-item"><a href="books.html?category=Self-Help">Self-Help</a></li>
+            <li class="footer-link-item"><a href="books.html?category=Business">Business</a></li>
+            <li class="footer-link-item"><a href="books.html?category=Science">Science</a></li>
+            <li class="footer-link-item"><a href="books.html?category=Classics">Classics</a></li>
+          </ul>
+        </div>
+
+        <!-- Academic Project Note -->
+        <div>
+          <h3 class="footer-heading">Project Info</h3>
+          <div class="footer-academic-badge">
+            <div class="footer-academic-title">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+              College Assignment
+            </div>
+            <p class="footer-academic-text">
+              "Design and Development of an Online Book Store Using Generative AI". Implemented using pure HTML5, CSS3, and Vanilla JavaScript with no backend or external dependencies.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom-bar">
+        <p>&copy; 2026 BookNest. All rights reserved. Built as an academic demonstration of AI-assisted frontend web engineering.</p>
+        <p>No backend &bull; Zero dependencies &bull; 100% Browser Native</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/books.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
